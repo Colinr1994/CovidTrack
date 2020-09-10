@@ -11,9 +11,21 @@ public class TrackerController {
 	public String index(Model model) {
 		return "index";
 	}
+
+	@PostMapping("") // Need to add dependencies. 
+	public String submit(
+		@ResquestParam("fname) String fName,
+		@RequestParam("lname) String lName,
+		// Request Date? Alternative: pull sys time 
+		Model model) {
+		model.addAttribute("fname", fName);
+		model.addAttribute("lName", lName);
+	}
 	
 	@GetMapping("/user")
 	public String manager(Model model) {
 		return "lookup";
 	}
+
+
 }
