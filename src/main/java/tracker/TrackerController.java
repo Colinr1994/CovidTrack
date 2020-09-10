@@ -20,6 +20,8 @@ public class TrackerController {
 		Model model) {
 		model.addAttribute("fname", fName);
 		model.addAttribute("lName", lName);
+		// Process data (DB call) 
+		//return "success";
 	}
 	
 	@GetMapping("/user")
