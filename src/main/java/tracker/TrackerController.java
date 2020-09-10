@@ -11,4 +11,9 @@ public class TrackerController {
 	public String index(Model model) {
 		return "index";
 	}
+	
+	@GetMapping("/user")
+	public String manager(Model model) {
+		return "lookup";
+	}
 }
