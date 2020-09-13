@@ -2,6 +2,9 @@ package tracker;
 
 import org.springframework.stereotype.Repository;
 import java.util.List;
+
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 
@@ -12,5 +15,9 @@ public interface TrackerRepository extends CrudRepository<User, String> {
 	List<User> findAll();
 	
 	
-	//Create method to set specific user "passed" value to true.
+	//Test
+	@Modifying
+	@Query(value = "UPDATE User u SET u.passed = TRUE WHERE u.email =?1", nativeQuery = true)
+	void updatePassed(String email);
 }
+	
