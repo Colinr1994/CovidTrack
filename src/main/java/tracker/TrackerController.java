@@ -1,13 +1,20 @@
 package tracker;
 
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class TrackerController {
+	
+	@Autowired
+	private TrackerRepository trackerRepository;
 
 	@GetMapping("")
 	public String index(Model model) {
@@ -16,17 +23,27 @@ public class TrackerController {
 
 	@PostMapping("") 
 	public String submit(
+		@Valid User user,
+		BindingResult result,
 		@RequestParam("email") String email, 
 		Model model) {
 		model.addAttribute("email", email);
 		// Process data (DB call) 
-		System.out.println("Run");
+		
 		return "success";
 	}
 	
 	@GetMapping("/user")
 	public String manager(Model model) {
-		return "lookup";
+		Iterable<User> users = trackerRepository.findAll();
+		return users.toString();
+	}
+	
+	@PostMapping("/user")
+	public String searchManager(Model model) {
+		//Iterable<User> managedUsers = trackerRepository.findByManager(manager);
+		//trackerRepository.insertUser();
+		return "index";
 	}
 
 

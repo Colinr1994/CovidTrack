@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name="user")
+@Table(name="users")
 public class User {
 	
 	@Id
@@ -12,7 +12,8 @@ public class User {
 	@NotEmpty
 	private String fName;
 	private String lName;
-	private String manager; //email?
+	@NotEmpty
+	private String manager;
 	@NotEmpty
 	private boolean passed;
 	
@@ -28,7 +29,7 @@ public class User {
 		
 	}
 	
-	public String getPassed() {
+	public String getPassedString() {
 		if (this.passed) {
 			return "Passed";
 		} else {
@@ -43,6 +44,7 @@ public class User {
 	public String getfName() {return fName;}
 	public String getlName() {return lName;}
 	public String getManager() {return manager;}
+	public boolean getPassed() {return passed;}
 	
 	public void setEmail(String email) {this.email = email;}
 	public void setfName(String fName) {this.fName = fName;}

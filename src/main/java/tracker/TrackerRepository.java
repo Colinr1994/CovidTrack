@@ -19,5 +19,14 @@ public interface TrackerRepository extends CrudRepository<User, String> {
 	@Modifying
 	@Query(value = "UPDATE User u SET u.passed = TRUE WHERE u.email =?1", nativeQuery = true)
 	void updatePassed(String email);
+	
+	// Manager Access 
+	List<User> findByManager(String manager);
+
+	// Insert User 
+	//@Modifying
+	//@Query(value = "INSERT INTO users(email, fName, lName, manager, passed) VALUES ("test@email.com","first","last","manny manager", TRUE)", nativeQuery = true)
+	//void insertUser();
 }
+
 	
