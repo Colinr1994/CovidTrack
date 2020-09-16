@@ -14,7 +14,6 @@ public class User {
 	private String lName;
 	@NotEmpty
 	private String manager;
-	@NotEmpty
 	private boolean passed;
 	
 	public User() {}

@@ -1,11 +1,8 @@
 package tracker;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,13 +20,13 @@ public class TrackerController {
 
 	@PostMapping("") 
 	public String submit(
-		@Valid User user,
-		BindingResult result,
 		@RequestParam("email") String email, 
 		Model model) {
-		model.addAttribute("email", email);
+		//model.addAttribute("email", email);
 		// Process data (DB call) 
-		
+		User user = trackerRepository.findByEmail(email);
+		user.setPassed(false);
+		trackerRepository.save(user);
 		return "success";
 	}
 	
