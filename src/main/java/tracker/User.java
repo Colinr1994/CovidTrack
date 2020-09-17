@@ -3,8 +3,11 @@ package tracker;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 @Entity
 @Table(name="users")
+@DynamicUpdate
 public class User {
 	
 	@Id
