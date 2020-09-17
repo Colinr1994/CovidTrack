@@ -42,7 +42,7 @@ public class TrackerController {
 	public String searchManager(
 			@RequestParam("email") String email,
 			Model model) {
-		Iterable<User> users = trackerRepository.findAll();
+		Iterable<User> users = trackerRepository.findByManager(email);
 		model.addAttribute("users", users);
 		return "results";
 	}
