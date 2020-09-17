@@ -1,5 +1,7 @@
 package tracker;
 
+import java.sql.Timestamp;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
@@ -18,6 +20,7 @@ public class User {
 	@NotEmpty
 	private String manager;
 	private boolean passed;
+	private Timestamp passedDate; 
 	
 	public User() {}
 	
@@ -47,11 +50,13 @@ public class User {
 	public String getlName() {return lName;}
 	public String getManager() {return manager;}
 	public boolean getPassed() {return passed;}
+	public Timestamp getPassedDate() {return passedDate;}
 	
 	public void setEmail(String email) {this.email = email;}
 	public void setfName(String fName) {this.fName = fName;}
 	public void setlName(String lName) {this.lName = lName;}
 	public void setManager(String manager) {this.manager = manager;}
+	public void setPassedDate(Timestamp passedDate) {this.passedDate = new Timestamp(System.currentTimeMillis());}
 	
 	@Override
 	public String toString() {

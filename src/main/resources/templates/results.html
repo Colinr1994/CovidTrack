@@ -6,12 +6,12 @@
 </head>
 <body>
 <table>
-		<tr th:each="user ${users}">
+		<tr th:each="User: ${users}">
 <table>
   <tbody>
     <tr>
       <td>Confirmation Number:</td>
-      <td th:text="${user.email}"></td>
+      <td th:text="${User.email}"></td>
     </tr>
   </tbody>
 </table>
