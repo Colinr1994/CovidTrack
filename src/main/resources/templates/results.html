@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<table>
+		<tr th:each="user ${users}">
+<table>
+  <tbody>
+    <tr>
+      <td>Confirmation Number:</td>
+      <td th:text="${user.email}"></td>
+    </tr>
+  </tbody>
+</table>
+		</tr>
+	</table>
+
+</body>
+</html>

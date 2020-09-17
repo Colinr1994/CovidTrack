@@ -1,6 +1,5 @@
 package tracker;
 
-import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,12 +14,12 @@ public class TrackerController {
 	@Autowired
 	private TrackerRepository trackerRepository;
 
-	@GetMapping("")
+	@GetMapping("/")
 	public String index(Model model) {
 		return "index";
 	}
 
-	@PostMapping("") 
+	@PostMapping("/") 
 	public String submit(
 		@RequestParam("email") String email, 
 		Model model) {
@@ -35,20 +34,16 @@ public class TrackerController {
 	}
 	
 	@GetMapping("/manager")
-	public String manager(Model model) {
-		String email = new String();
-		model.addAttribute("email",email);
-		
-		
+	public String manager(Model model) {		
 		return "lookup";
 	}
 	
 	@PostMapping("/manager")
-	public String searchManager(Model model) {
-		//Iterable<User> managedUsers = trackerRepository.findByManager(manager);
-		//trackerRepository.insertUser();
-		return "index";
+	public String searchManager(
+			@RequestParam("email") String email,
+			Model model) {
+		Iterable<User> users = trackerRepository.findAll();
+		model.addAttribute("users", users);
+		return "results";
 	}
-
-
 }
