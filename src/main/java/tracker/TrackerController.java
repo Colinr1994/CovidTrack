@@ -1,5 +1,6 @@
 package tracker;
 
+import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,13 +24,12 @@ public class TrackerController {
 	public String submit(
 		@RequestParam("email") String email, 
 		Model model) {
-		//model.addAttribute("email", email);
-		// Process data (DB call) 
 		User user = trackerRepository.findByEmail(email);
 		if (user == null) {
 			return "fail";
 		}
-		user.setPassed(true);
+		user.setPassedDate();
+	trackerRepository.save(user);
 		return "success";
 	}
 	
