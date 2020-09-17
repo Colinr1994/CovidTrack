@@ -34,13 +34,13 @@ public class TrackerController {
 		return "success";
 	}
 	
-	@GetMapping("/user")
+	@GetMapping("/manager")
 	public String manager(Model model) {
-		Iterable<User> users = trackerRepository.findAll();
-		return users.toString();
+		//Iterable<User> users = trackerRepository.findAll();
+		return "lookup";
 	}
 	
-	@PostMapping("/user")
+	@PostMapping("/manager")
 	public String searchManager(Model model) {
 		//Iterable<User> managedUsers = trackerRepository.findByManager(manager);
 		//trackerRepository.insertUser();
