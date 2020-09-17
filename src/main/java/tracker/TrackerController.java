@@ -36,7 +36,10 @@ public class TrackerController {
 	
 	@GetMapping("/manager")
 	public String manager(Model model) {
-		//Iterable<User> users = trackerRepository.findAll();
+		String email = new String();
+		model.addAttribute("email",email);
+		
+		
 		return "lookup";
 	}
 	
