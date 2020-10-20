@@ -8,25 +8,98 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <title>Covid Track</title>
+<style>
+body {
+background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/so-white.png");
+}
+
+h2 {
+ font-family: 'Allerta', Helvetica, Arial, sans-serif;
+ font-size: 40px;
+ line-height: 45px;
+}
+
+h4 {
+ font-family: 'Allerta', Helvetica, Arial, sans-serif;
+}
+ 
+p, a, span {
+ font-family: 'Crimson Text', Georgia, Times, serif;
+ font-size: 16px;
+ line-height: 25px;
+}
+</style>
+
 </head>
 <body>
-<div class="container">
-<h1 class="text-center">Covid Tracker</h1>
-<p class="text-center">LSUSD</p>
-	<div class="border border-danger p-4">
-		<h4 class="text-center">Attention!</h4>
-		<p>Read all and accept if true.</p>
-		
-		<form method="post">
-			<label for="email"> Email:</label><br>
-			<input type="text" id="email" name="email"><br>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="color:white; background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
+  <a class="navbar-brand" style="color:white;" href="/">Covid Track</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" style="color:white;" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="color:white;" href="/manager">Manager Portal</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="color:white;" href="#">Learn More</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      An Open Source Project
+    </span>
+  </div>
+</nav>
+
+
+	<div class="container">
+		<div class="p-4">
+			<h2 class="text-center">Attention</h2>
+			<br>
+			<p>Please review the following criteria either before or upon arrival at work:<br><br>
+			- Was your temperature over 100 degrees?<br><br>
+			- Have you been in close direct contact (*) with anyone who has tested positive for COVID-19 within the last 14 days?<br><br>
+			- Are you experiencing any symptons associated with COVID-19 today or in the past 24 hours?<br><br>
+			&emsp;&emsp; - Fever or chills<br>
+			&emsp;&emsp; - A new cough, nasal congestion or runny nose <br>
+			&emsp;&emsp; - Shortness of breath or difficulty breathing<br>
+			&emsp;&emsp; - Fatigue<br>
+			&emsp;&emsp; - Muscle or body aches<br>
+			&emsp;&emsp; - A headache that is not normal for you <br>
+			&emsp;&emsp; - New loss of taste or smell<br>
+			&emsp;&emsp; - Sore throat <br>
+			&emsp;&emsp; - Nausea or vomiting<br>
+			&emsp;&emsp; - Diarrhea<br><br>
+			If the answer to any of the questions was "yes", please inform HR.
 			
-			 <input type="submit" value="Search" class="btn btn-danger">
+			Enter your email and Accept below to certify that you are NOT experiencing any of the symtoms listed above.
+			</p>
+			<br>
+			
+			<form method="post">
+  			
+  			<div class="form-inline justify-content-center">
+    			<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+    			<small id="emailHelp" class="form-text text-muted"></small> <!-- Use? -->
+  				<input type="submit" value="Accept" class="btn btn-primary">
+  			</div>
+			
 		</form>
-		
+			
+		</div>
+		<br> <br>
 	</div>
-	<br> <br>
-</div>
+	
+	<div class="jumbotron sticky-bottom" style="color:white; background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
+	  <h4>Covid Track</h4>
+	  <a href="https://github.com/Colinr1994/CovidTrack" style="color:white; font-size:15px">An Open Source Project</a>
+	</div>
 
 </body>
 </html>

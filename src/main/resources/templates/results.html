@@ -7,23 +7,92 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>Covid Track</title>
+<style>
+body {
+background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/so-white.png");
+}
+
+h2 {
+ font-family: 'Allerta', Helvetica, Arial, sans-serif;
+ font-size: 40px;
+ line-height: 45px;
+}
+
+h4 {
+ font-family: 'Allerta', Helvetica, Arial, sans-serif;
+}
+ 
+p, a, span {
+ font-family: 'Crimson Text', Georgia, Times, serif;
+ font-size: 16px;
+ line-height: 25px;
+}
+
+thead {display: table-header-group;}
+tfoot {display: table-header-group;}
+
+
+</style>
+
 </head>
 <body>
-<table>
-		<tr th:each="User: ${users}">
-<table>
-  <tbody>
-    <tr>
-      <td>Confirmation Number:</td>
-      <td th:text="${User.email}"></td>
-    </tr>
-  </tbody>
-</table>
-		</tr>
-	</table>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="color:white; background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
+  <a class="navbar-brand" style="color:white;" href="/">Covid Track</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" style="color:white;" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="color:white;" href="/manager">Manager Portal</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="color:white;" href="#">Learn More</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      An Open Source Project
+    </span>
+  </div>
+</nav>
+
+
+<div class="container">
+	<div class="p-4">
+		<h2 class="text-center">Uncleared Staff</h2><br>
+			<p class="text-center">Please reach out to the following staff members to ensure their completion of the form before coming to work!</p><br>
+			<div class="border border-danger p-4">
+					
+				<table class="table table-striped">
+					<thead>
+		   				<th scope="col">Email</th>
+		      			<th scope="col">First</th>
+		      			<th scope="col">Last</th>
+		      			<th scope="col">Last Passed</th>
+		    		</thead>
+					<tbody>
+						<tr th:each="User: ${users}">
+							<th scope="row" th:text="${User.email}"></th>
+							<td th:text="${User.fName} "></td>
+							<td th:text="${User.lName} "></td>
+							<td th:text="${User.passedDate} "></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div><br><br>
+	</div>
+	
+	<div class="jumbotron sticky-bottom" style="color:white; background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
+	  <h4>Covid Track</h4>
+	  <a href="https://github.com/Colinr1994/CovidTrack" style="color:white; font-size:15px">An Open Source Project</a>
+	</div>
 
 </body>
 </html>
-
-
